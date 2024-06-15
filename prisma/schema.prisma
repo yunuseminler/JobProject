@@ -17,7 +17,6 @@ model User {
   email           String   @unique
   balance         Int
   password        String          
-  orders          Order[] @relation("UserToOrder")
   
 }
 
@@ -27,8 +26,6 @@ model Order {
   price           Int
   amount          Int   
   userId          Int
-  user            User @relation("UserToOrder", fields: [userId], references: [id])
   
 
-  @@index([userId])
 }
